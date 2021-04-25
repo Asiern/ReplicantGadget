@@ -1,0 +1,3 @@
+[submodule "Source/ReplicantGadget/ReplicantHook"]
+	path = Source/ReplicantGadget/ReplicantHook
+	url = https://github.com/Asiern/ReplicantHook.git
