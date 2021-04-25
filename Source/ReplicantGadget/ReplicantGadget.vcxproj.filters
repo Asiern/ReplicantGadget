@@ -21,12 +21,24 @@
     <ClInclude Include="Main.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ReplicantHook\Source\ReplicantHook\ReplicantHook.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerPanel.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cApp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ReplicantHook\Source\ReplicantHook\ReplicantHook.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerPanel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
