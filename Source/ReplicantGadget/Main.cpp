@@ -1,5 +1,7 @@
 #include "Main.hpp"
 #include "PlayerPanel.hpp"
+#include "GraphicsPanel.hpp"
+#include "CheatsPanel.hpp"
 
 wxBEGIN_EVENT_TABLE(Main, wxFrame)
 EVT_CLOSE(Main::OnClose)
@@ -27,9 +29,16 @@ Main::Main() : wxFrame(nullptr, wxID_ANY, "NieR Replicant Gadget", wxPoint(30, 3
 	//Create Notebook
 	notebook = new wxNotebook(this, wxID_ANY, wxPoint(margin, margin * 6), wxSize(width, 485), 0, wxNotebookNameStr);
 	Player = new PlayerPanel(notebook, hook);
+	Graphics = new GraphicsPanel(notebook, hook);
+	Cheats = new CheatsPanel(notebook, hook);
+
 	notebook->AddPage(Player, wxT("Player"), false, 0);
+	notebook->AddPage(Graphics, wxT("Graphics"), false, 1);
+	notebook->AddPage(Cheats, wxT("Cheats"), false, 2);
 
 	Player->Enable(false);
+	Graphics->Enable(false);
+	Cheats->Enable(false);
 
 	//Timer
 	m_Timer = new wxTimer();
@@ -59,12 +68,17 @@ void Main::updateComponents(void)
 		m_hooked->SetLabelText("Hooked: Yes");
 		m_status->SetLabel("Process: " + wxString::Format(wxT("%i"), hook->getProcessID()));
 		Player->Enable(true);
+		Graphics->Enable(true);
+		Cheats->Enable(true);
+
 	}
 	else {
 		m_hooked->SetForegroundColour(wxColor(244, 67, 54));
 		m_hooked->SetLabelText("Hooked: No");
 		m_status->SetLabel("Process: None");
 		Player->Enable(false);
+		Graphics->Enable(false);
+		Cheats->Enable(false);
 	}
 }
 

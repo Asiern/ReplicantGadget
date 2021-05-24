@@ -14,11 +14,11 @@ public:
 	wxStaticText* m_Level = nullptr;
 	wxStaticText* m_Funds = nullptr;
 	wxStaticText* m_Zone = nullptr;
+	wxStaticText* m_Name = nullptr;
+	wxStaticText* m_Playtime = nullptr;
+	wxStaticText* m_Magic = nullptr;
 
-	//CHEATS
-	wxStaticBox* m_CheatsBox = nullptr;
-	wxCheckBox* m_InfiniteHealth = nullptr;
-	wxCheckBox* m_InfiniteMagic = nullptr;
+
 
 	//POSITION
 	wxStaticBox* m_PositionBox = nullptr;
@@ -38,18 +38,24 @@ public:
 	wxButton* m_StorePosition = nullptr;
 	wxButton* m_RestorePosition = nullptr;
 
+	//Attributes
+	wxStaticBox* m_AttributesBox = nullptr;
+	wxStaticText* m_SetLevel = nullptr;
+	wxTextCtrl* m_LevelTextCtrl = nullptr;
+	wxButton* m_setLevelBtn = nullptr;
+
+
 	PlayerPanel(wxNotebook* parent, ReplicantHook* hook);
 	~PlayerPanel();
 protected:
 	//TIMER
 	void OnTimer(wxTimerEvent&);
-	//CHEAT EVT
-	void InfiniteHealth(wxCommandEvent& evt);
-	void InfiniteMagic(wxCommandEvent& evt);
+
 	//POSITION EVT
 	void onWarpCLicked(wxCommandEvent& evt);
 	void StorePosition(wxCommandEvent& evt);
 	void RestorePosition(wxCommandEvent& evt);
+	void setLevel(wxCommandEvent& evt);
 	wxDECLARE_EVENT_TABLE();
 
 private:

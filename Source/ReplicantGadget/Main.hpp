@@ -20,9 +20,9 @@ private:
 	//Tabs
 	wxNotebook* notebook = nullptr;
 	wxPanel* Player = nullptr;
-	wxPanel* Inventory = nullptr;
-	wxPanel* Weapons = nullptr;
-	wxPanel* Misc = nullptr;
+	wxPanel* Graphics = nullptr;
+	wxPanel* Cheats = nullptr;
+
 
 public:
 	Main();
