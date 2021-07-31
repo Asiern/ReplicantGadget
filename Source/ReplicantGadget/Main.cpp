@@ -1,4 +1,5 @@
 #include "Main.hpp"
+#include "resource.h"
 #include "PlayerPanel.hpp"
 #include "GraphicsPanel.hpp"
 #include "CheatsPanel.hpp"
@@ -24,7 +25,7 @@ Main::Main() : wxFrame(nullptr, wxID_ANY, "NieR Replicant Gadget", wxPoint(30, 3
 	const int width = 365;
 
 	//Initialize hook
-	hook = new ReplicantHook();
+	hook = new ReplicantHook(1);
 
 	//Create Notebook
 	notebook = new wxNotebook(this, wxID_ANY, wxPoint(margin, margin * 6), wxSize(width, 485), 0, wxNotebookNameStr);
@@ -50,7 +51,7 @@ Main::Main() : wxFrame(nullptr, wxID_ANY, "NieR Replicant Gadget", wxPoint(30, 3
 	m_hooked->SetFont(font);
 	m_status = new wxStaticText(this, wxID_ANY, "Process: None", wxPoint(margin, margin * 3), wxDefaultSize, 0, wxStaticTextNameStr);
 	m_status->SetFont(font);
-	m_version = new wxStaticText(this, wxID_ANY, "Version: 1.0.0", wxPoint(width - margin * 6, margin), wxDefaultSize, 0, wxStaticTextNameStr);
+	m_version = new wxStaticText(this, wxID_ANY, "Version: 2.0.0", wxPoint(width - margin * 6, margin), wxDefaultSize, 0, wxStaticTextNameStr);
 	m_version->SetFont(font);
 
 	StartHook();//start hook thread
