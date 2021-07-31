@@ -28,38 +28,38 @@ PlayerPanel::PlayerPanel(wxNotebook* parent, ReplicantHook* hook) : wxPanel(pare
 
 	m_Zone = new wxStaticText(this, wxID_ANY, "Zone: ", wxPoint(margin * 3, margin + 120), wxDefaultSize, 0, wxStaticTextNameStr);
 
-	////Position
-	//wxSize TextCtrlSize = wxSize(80, 20);
-	//m_PositionBox = new wxStaticBox(this, wxID_ANY, "Position", wxPoint(margin, 250), wxSize(width - 30, 200), 1, wxStaticBoxNameStr);
-	//m_XText = new wxStaticText(this, wxID_ANY, "X", wxPoint(20, 303), wxDefaultSize, 0, wxStaticTextNameStr);
-	//m_YText = new wxStaticText(this, wxID_ANY, "Y", wxPoint(20, 338), wxDefaultSize, 0, wxStaticTextNameStr);
-	//m_ZText = new wxStaticText(this, wxID_ANY, "Z", wxPoint(20, 373), wxDefaultSize, 0, wxStaticTextNameStr);
-	//m_XposTextCtrl = new wxTextCtrl(this, wxID_ANY, "0.000000", wxPoint(4 * margin, 300), TextCtrlSize, 0, wxDefaultValidator, wxTextCtrlNameStr);
-	//m_YposTextCtrl = new wxTextCtrl(this, wxID_ANY, "0.000000", wxPoint(4 * margin, 335), TextCtrlSize, 0, wxDefaultValidator, wxTextCtrlNameStr);
-	//m_ZposTextCtrl = new wxTextCtrl(this, wxID_ANY, "0.000000", wxPoint(4 * margin, 370), TextCtrlSize, 0, wxDefaultValidator, wxTextCtrlNameStr);
-	//m_XposStoredTextCtrl = new wxTextCtrl(this, wxID_ANY, "0.000000", wxPoint(width / 2 - 4 * margin, 300), TextCtrlSize, 0, wxDefaultValidator, wxTextCtrlNameStr);
-	//m_YposStoredTextCtrl = new wxTextCtrl(this, wxID_ANY, "0.000000", wxPoint(width / 2 - 4 * margin, 335), TextCtrlSize, 0, wxDefaultValidator, wxTextCtrlNameStr);
-	//m_ZposStoredTextCtrl = new wxTextCtrl(this, wxID_ANY, "0.000000", wxPoint(width / 2 - 4 * margin, 370), TextCtrlSize, 0, wxDefaultValidator, wxTextCtrlNameStr);
-	//m_CurrentPosText = new wxStaticText(this, wxID_ANY, "Current", wxPoint(4 * margin, 280), wxDefaultSize, 0, wxStaticTextNameStr);
-	//m_StoredPosText = new wxStaticText(this, wxID_ANY, "Stored", wxPoint(width / 2 - 4 * margin, 280), wxDefaultSize, 0, wxStaticTextNameStr);
-	//m_StorePosition = new wxButton(this, wxID_ANY, "Store", wxPoint(240, 300), wxSize(90, 25), 1, wxDefaultValidator, wxStaticBoxNameStr);
-	//m_StorePosition->Bind(wxEVT_BUTTON, &PlayerPanel::StorePosition, this);
-	//m_RestorePosition = new wxButton(this, wxID_ANY, "Restore", wxPoint(240, 335), wxSize(90, 25), 1, wxDefaultValidator, wxStaticBoxNameStr);
-	//m_RestorePosition->Bind(wxEVT_BUTTON, &PlayerPanel::RestorePosition, this);
-	//m_WarpButton = new wxButton(this, wxID_ANY, "Warp", wxPoint(240, 410), wxSize(90, 25), 1, wxDefaultValidator, wxStaticBoxNameStr);
-	//m_WarpButton->Bind(wxEVT_BUTTON, &PlayerPanel::onWarpCLicked, this);
-	//wxArrayString* Locations = new wxArrayString();
-	//Locations->Add("Amusement (Beauvoir)", 1);
-	//m_WarpComboBox = new wxComboBox(this, wxID_ANY, "", wxPoint(2 * margin, 410), wxSize((width - (6 * margin)) * 2 / 3, 20), *Locations, 0, wxDefaultValidator, wxComboBoxNameStr);
-
-	//delete Locations;
-
 	//Attributes
-	m_AttributesBox = new wxStaticBox(this, wxID_ANY, "Attributes", wxPoint(margin, 180), wxSize(width - 30, 260), 1, wxStaticBoxNameStr);
+	m_AttributesBox = new wxStaticBox(this, wxID_ANY, "Attributes", wxPoint(margin, 180), wxSize(width - 30, 80), 1, wxStaticBoxNameStr);
 	m_SetLevel = new wxStaticText(this, wxID_ANY, "Level", wxPoint(margin * 3, 210), wxDefaultSize, 0, wxStaticTextNameStr);
 	m_LevelTextCtrl = new wxTextCtrl(this, wxID_ANY, wxEmptyString, wxPoint(margin * 2 + 100, 210), wxDefaultSize, 0, wxDefaultValidator, wxTextCtrlNameStr);
 	m_setLevelBtn = new wxButton(this, wxID_ANY, "Set Level", wxPoint(240, 210), wxDefaultSize, 0, wxDefaultValidator, wxButtonNameStr);
 	m_setLevelBtn->Bind(wxEVT_BUTTON, &PlayerPanel::setLevel, this);
+
+	//Position
+	wxSize TextCtrlSize = wxSize(80, 20);
+	m_PositionBox = new wxStaticBox(this, wxID_ANY, "Position", wxPoint(margin, 290), wxSize(width - 30, 150), 1, wxStaticBoxNameStr);
+	m_XText = new wxStaticText(this, wxID_ANY, "X", wxPoint(20, 333), wxDefaultSize, 0, wxStaticTextNameStr);
+	m_YText = new wxStaticText(this, wxID_ANY, "Y", wxPoint(20, 368), wxDefaultSize, 0, wxStaticTextNameStr);
+	m_ZText = new wxStaticText(this, wxID_ANY, "Z", wxPoint(20, 403), wxDefaultSize, 0, wxStaticTextNameStr);
+	m_XposTextCtrl = new wxTextCtrl(this, wxID_ANY, "0.000000", wxPoint(4 * margin, 330), TextCtrlSize, 0, wxDefaultValidator, wxTextCtrlNameStr);
+	m_YposTextCtrl = new wxTextCtrl(this, wxID_ANY, "0.000000", wxPoint(4 * margin, 365), TextCtrlSize, 0, wxDefaultValidator, wxTextCtrlNameStr);
+	m_ZposTextCtrl = new wxTextCtrl(this, wxID_ANY, "0.000000", wxPoint(4 * margin, 400), TextCtrlSize, 0, wxDefaultValidator, wxTextCtrlNameStr);
+	m_XposStoredTextCtrl = new wxTextCtrl(this, wxID_ANY, "0.000000", wxPoint(width / 2 - 4 * margin, 330), TextCtrlSize, 0, wxDefaultValidator, wxTextCtrlNameStr);
+	m_YposStoredTextCtrl = new wxTextCtrl(this, wxID_ANY, "0.000000", wxPoint(width / 2 - 4 * margin, 365), TextCtrlSize, 0, wxDefaultValidator, wxTextCtrlNameStr);
+	m_ZposStoredTextCtrl = new wxTextCtrl(this, wxID_ANY, "0.000000", wxPoint(width / 2 - 4 * margin, 400), TextCtrlSize, 0, wxDefaultValidator, wxTextCtrlNameStr);
+	m_CurrentPosText = new wxStaticText(this, wxID_ANY, "Current", wxPoint(4 * margin, 310), wxDefaultSize, 0, wxStaticTextNameStr);
+	m_StoredPosText = new wxStaticText(this, wxID_ANY, "Stored", wxPoint(width / 2 - 4 * margin, 310), wxDefaultSize, 0, wxStaticTextNameStr);
+	m_StorePosition = new wxButton(this, wxID_ANY, "Store", wxPoint(240, 330), wxSize(90, 25), 1, wxDefaultValidator, wxStaticBoxNameStr);
+	m_StorePosition->Bind(wxEVT_BUTTON, &PlayerPanel::StorePosition, this);
+	m_RestorePosition = new wxButton(this, wxID_ANY, "Restore", wxPoint(240, 365), wxSize(90, 25), 1, wxDefaultValidator, wxStaticBoxNameStr);
+	m_RestorePosition->Bind(wxEVT_BUTTON, &PlayerPanel::RestorePosition, this);
+	/*m_WarpButton = new wxButton(this, wxID_ANY, "Warp", wxPoint(240, 410), wxSize(90, 25), 1, wxDefaultValidator, wxStaticBoxNameStr);
+	m_WarpButton->Bind(wxEVT_BUTTON, &PlayerPanel::onWarpCLicked, this);
+	wxArrayString* Locations = new wxArrayString();
+	Locations->Add("Amusement (Beauvoir)", 1);
+	m_WarpComboBox = new wxComboBox(this, wxID_ANY, "", wxPoint(2 * margin, 410), wxSize((width - (6 * margin)) * 2 / 3, 20), *Locations, 0, wxDefaultValidator, wxComboBoxNameStr);
+
+	delete Locations;*/
 
 	this->SetBackgroundColour(wxColor(255, 255, 255));
 	m_Timer->Start(1000, wxTIMER_CONTINUOUS);
@@ -82,10 +82,10 @@ void PlayerPanel::OnTimer(wxTimerEvent&)
 		m_Name->SetLabel("Name: " + hook->getName());
 		m_Playtime->SetLabel("Playtime: " + wxString::Format(wxT("%f"), hook->getPlaytime()));
 		m_Zone->SetLabel("Zone: " + hook->getZone());
-		////Position
-		//m_XposTextCtrl->SetLabel(wxString::Format(wxT("%f"), hook->getX()));
-		//m_YposTextCtrl->SetLabel(wxString::Format(wxT("%f"), hook->getY()));
-		//m_ZposTextCtrl->SetLabel(wxString::Format(wxT("%f"), hook->getZ()));
+		//Position
+		m_XposTextCtrl->SetLabel(wxString::Format(wxT("%f"), hook->getX()));
+		m_YposTextCtrl->SetLabel(wxString::Format(wxT("%f"), hook->getY()));
+		m_ZposTextCtrl->SetLabel(wxString::Format(wxT("%f"), hook->getZ()));
 	}
 	else {
 	}
