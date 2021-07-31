@@ -26,7 +26,7 @@ All features will be disabled until Gadget attaches to the game (indicated at th
 
 ## :clipboard: Release Notes
 
-### Version 2.0.0 | [View Previous Versions](Notes.md)
+### Version 2.0.0 | [View Previous Versions](CHANGELOG.md)
 
 #### What's new?
 
