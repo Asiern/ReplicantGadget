@@ -21,16 +21,16 @@ All features will be disabled until Gadget attaches to the game (indicated at th
 
 - `Player Status` - display player status (Health, level, Magic...)
 - `Teleport` - Teleport through the map
+- `Inventory Management` - add/remove items
 - `InfiniteHealth` - enables or disables infinite Health
 - `InfiniteMagic` - enables or disables infinite Magic
 
 ## :clipboard: Release Notes
 
-### Version 2.0.0 | [View Previous Versions](CHANGELOG.md)
+### Version 2.1.0 | [View Previous Versions](CHANGELOG.md)
 
 #### What's new?
 
-- `Patch v1.0.3.0 support`
-- `Teleporting`
+- `Inventory Management`
 
 ## :page_with_curl: [License](LICENSE)

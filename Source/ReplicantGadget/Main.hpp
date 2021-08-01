@@ -22,6 +22,7 @@ private:
 	wxPanel* Player = nullptr;
 	wxPanel* Graphics = nullptr;
 	wxPanel* Cheats = nullptr;
+	wxPanel* Inventory = nullptr;
 
 
 public:
