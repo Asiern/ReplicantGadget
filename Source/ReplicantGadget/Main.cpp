@@ -3,6 +3,7 @@
 #include "PlayerPanel.hpp"
 #include "GraphicsPanel.hpp"
 #include "CheatsPanel.hpp"
+#include "InventoryPanel.hpp"
 
 wxBEGIN_EVENT_TABLE(Main, wxFrame)
 EVT_CLOSE(Main::OnClose)
@@ -32,14 +33,17 @@ Main::Main() : wxFrame(nullptr, wxID_ANY, "NieR Replicant Gadget", wxPoint(30, 3
 	Player = new PlayerPanel(notebook, hook);
 	Graphics = new GraphicsPanel(notebook, hook);
 	Cheats = new CheatsPanel(notebook, hook);
+	Inventory = new InventoryPanel(notebook, hook);
 
 	notebook->AddPage(Player, wxT("Player"), false, 0);
 	notebook->AddPage(Graphics, wxT("Graphics"), false, 1);
-	notebook->AddPage(Cheats, wxT("Cheats"), false, 2);
+	notebook->AddPage(Inventory, wxT("Inventory"), false, 2);
+	notebook->AddPage(Cheats, wxT("Cheats"), false, 3);
 
 	Player->Enable(false);
 	Graphics->Enable(false);
 	Cheats->Enable(false);
+	Inventory->Enable(false);
 
 	//Timer
 	m_Timer = new wxTimer();
@@ -51,7 +55,7 @@ Main::Main() : wxFrame(nullptr, wxID_ANY, "NieR Replicant Gadget", wxPoint(30, 3
 	m_hooked->SetFont(font);
 	m_status = new wxStaticText(this, wxID_ANY, "Process: None", wxPoint(margin, margin * 3), wxDefaultSize, 0, wxStaticTextNameStr);
 	m_status->SetFont(font);
-	m_version = new wxStaticText(this, wxID_ANY, "Version: 2.0.0", wxPoint(width - margin * 6, margin), wxDefaultSize, 0, wxStaticTextNameStr);
+	m_version = new wxStaticText(this, wxID_ANY, "Version: 2.1.0", wxPoint(width - margin * 6, margin), wxDefaultSize, 0, wxStaticTextNameStr);
 	m_version->SetFont(font);
 
 	StartHook();//start hook thread
@@ -71,7 +75,7 @@ void Main::updateComponents(void)
 		Player->Enable(true);
 		Graphics->Enable(true);
 		Cheats->Enable(true);
-
+		Inventory->Enable(true);
 	}
 	else {
 		m_hooked->SetForegroundColour(wxColor(244, 67, 54));
@@ -80,6 +84,7 @@ void Main::updateComponents(void)
 		Player->Enable(false);
 		Graphics->Enable(false);
 		Cheats->Enable(false);
+		Inventory->Enable(false);
 	}
 }
 
