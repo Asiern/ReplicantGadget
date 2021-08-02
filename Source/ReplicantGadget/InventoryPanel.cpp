@@ -1,8 +1,8 @@
 #include "InventoryPanel.hpp"
 wxBEGIN_EVENT_TABLE(InventoryPanel, wxPanel)
-wxEND_EVENT_TABLE()
+	wxEND_EVENT_TABLE()
 
-InventoryPanel::InventoryPanel(wxNotebook* parent, ReplicantHook* hook) :wxPanel(parent, wxID_ANY)
+		InventoryPanel::InventoryPanel(wxNotebook *parent, ReplicantHook *hook) : wxPanel(parent, wxID_ANY)
 {
 	this->hook = hook;
 
@@ -10,8 +10,8 @@ InventoryPanel::InventoryPanel(wxNotebook* parent, ReplicantHook* hook) :wxPanel
 	_Recovery->Add("Medicinal Herb");
 	_Recovery->Add("Health Salve");
 	_Recovery->Add("Recovery Potion");
-	_Recovery->Add("Strenght Drop");
-	_Recovery->Add("Strenght Capsule");
+	_Recovery->Add("Strength Drop");
+	_Recovery->Add("Strength Capsule");
 	_Recovery->Add("Magic Drop");
 	_Recovery->Add("Magic Capsule");
 	_Recovery->Add("Defense Drop");
@@ -269,7 +269,7 @@ InventoryPanel::InventoryPanel(wxNotebook* parent, ReplicantHook* hook) :wxPanel
 	this->_Key->Add("Apples");
 
 	//Panel Components
-	wxArrayString* ItemCategories = new wxArrayString();
+	wxArrayString *ItemCategories = new wxArrayString();
 	ItemCategories->Add("Recovery", 1);
 	ItemCategories->Add("Cultivation", 1);
 	ItemCategories->Add("Fishing", 1);
@@ -298,70 +298,74 @@ InventoryPanel::~InventoryPanel()
 {
 }
 
-void InventoryPanel::onAddItemPress(wxCommandEvent& evt)
+void InventoryPanel::onAddItemPress(wxCommandEvent &evt)
 {
 	long quantity;
 	m_Quantity->GetValue().ToLong(&quantity);
 
 	int selection = m_Items->GetSelection();
-	if (wxNOT_FOUND == selection) {
+	if (wxNOT_FOUND == selection)
+	{
 		wxMessageBox("Please select an item");
 		return;
 	}
 	std::string name;
-	switch (m_ItemCategoryComboBox->GetSelection()) {
-	case 0://Recovery
+	switch (m_ItemCategoryComboBox->GetSelection())
+	{
+	case 0: //Recovery
 		name = this->_Recovery->Item(selection);
 		break;
-	case 1://Cultivation
+	case 1: //Cultivation
 		name = this->_Cultivation->Item(selection);
 		break;
-	case 2://Fishing
+	case 2: //Fishing
 		name = this->_Fishing->Item(selection);
 		break;
-	case 3://Materials
+	case 3: //Materials
 		name = this->_Materials->Item(selection);
 		break;
-	case 4://Key
+	case 4: //Key
 		name = this->_Key->Item(selection);
 		break;
 	}
 	hook->addItem(name, quantity);
 }
 
-void InventoryPanel::onRemoveItemPress(wxCommandEvent& evt)
+void InventoryPanel::onRemoveItemPress(wxCommandEvent &evt)
 {
 	int selection = m_Items->GetSelection();
-	if (wxNOT_FOUND == selection) {
+	if (wxNOT_FOUND == selection)
+	{
 		wxMessageBox("Please select an item");
 		return;
 	}
 	std::string name;
-	switch (m_ItemCategoryComboBox->GetSelection()) {
-	case 0://Recovery
+	switch (m_ItemCategoryComboBox->GetSelection())
+	{
+	case 0: //Recovery
 		name = this->_Recovery->Item(selection);
 		break;
-	case 1://Cultivation
+	case 1: //Cultivation
 		name = this->_Cultivation->Item(selection);
 		break;
-	case 2://Fishing
+	case 2: //Fishing
 		name = this->_Fishing->Item(selection);
 		break;
-	case 3://Materials
+	case 3: //Materials
 		name = this->_Materials->Item(selection);
 		break;
-	case 4://Key
+	case 4: //Key
 		name = this->_Key->Item(selection);
 		break;
 	}
 	hook->removeItem(name);
 }
 
-
-void InventoryPanel::onChangeItemCategory(wxCommandEvent& evt)
+void InventoryPanel::onChangeItemCategory(wxCommandEvent &evt)
 {
 	m_Items->Clear();
-	switch (m_ItemCategoryComboBox->GetSelection()) {
+	switch (m_ItemCategoryComboBox->GetSelection())
+	{
 	case 0:
 		m_Items->InsertItems(*_Recovery, 0);
 		break;
