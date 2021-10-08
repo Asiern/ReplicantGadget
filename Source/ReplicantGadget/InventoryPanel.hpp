@@ -13,6 +13,7 @@ private:
 	wxButton* m_AddItems = nullptr;
 	wxButton* m_RemoveItems = nullptr;
 	wxTextCtrl* m_Quantity = nullptr;
+	wxStaticText* m_feedbacklbl = nullptr;
 	wxArrayString* _Recovery;
 	wxArrayString* _Cultivation;
 	wxArrayString* _Fishing;

@@ -1,8 +1,8 @@
 #include "InventoryPanel.hpp"
 wxBEGIN_EVENT_TABLE(InventoryPanel, wxPanel)
-	wxEND_EVENT_TABLE()
+wxEND_EVENT_TABLE()
 
-		InventoryPanel::InventoryPanel(wxNotebook *parent, ReplicantHook *hook) : wxPanel(parent, wxID_ANY)
+InventoryPanel::InventoryPanel(wxNotebook* parent, ReplicantHook* hook) : wxPanel(parent, wxID_ANY)
 {
 	this->hook = hook;
 
@@ -269,7 +269,7 @@ wxBEGIN_EVENT_TABLE(InventoryPanel, wxPanel)
 	this->_Key->Add("Apples");
 
 	//Panel Components
-	wxArrayString *ItemCategories = new wxArrayString();
+	wxArrayString* ItemCategories = new wxArrayString();
 	ItemCategories->Add("Recovery", 1);
 	ItemCategories->Add("Cultivation", 1);
 	ItemCategories->Add("Fishing", 1);
@@ -280,6 +280,8 @@ wxBEGIN_EVENT_TABLE(InventoryPanel, wxPanel)
 	m_ItemCategoryComboBox->Bind(wxEVT_COMBOBOX, &InventoryPanel::onChangeItemCategory, this);
 
 	m_Items = new wxListBox(this, wxID_ANY, wxPoint(20, 60), wxSize(315, 300), *_Recovery, 0, wxDefaultValidator, wxListBoxNameStr);
+
+	m_feedbacklbl = new wxStaticText(this, wxID_ANY, "", wxPoint(20, 430), wxSize(15, 150), wxALIGN_LEFT, wxStaticTextNameStr);
 
 	//Buttons
 	m_AddItems = new wxButton(this, wxID_ANY, wxString("Add Item"), wxPoint(20, 400), wxDefaultSize, 0, wxDefaultValidator, wxButtonNameStr);
@@ -298,7 +300,7 @@ InventoryPanel::~InventoryPanel()
 {
 }
 
-void InventoryPanel::onAddItemPress(wxCommandEvent &evt)
+void InventoryPanel::onAddItemPress(wxCommandEvent& evt)
 {
 	long quantity;
 	m_Quantity->GetValue().ToLong(&quantity);
@@ -328,10 +330,20 @@ void InventoryPanel::onAddItemPress(wxCommandEvent &evt)
 		name = this->_Key->Item(selection);
 		break;
 	}
-	hook->addItem(name, quantity);
+
+	if (hook->addItem(name, quantity) == 0)
+	{
+		m_feedbacklbl->SetForegroundColour(wxColor(102, 287, 106));
+		m_feedbacklbl->SetLabel(name + " added");
+	}
+	else {
+		m_feedbacklbl->SetForegroundColour(wxColor(239, 83, 80));
+		m_feedbacklbl->SetLabel("Could not add " + name);
+	}
+
 }
 
-void InventoryPanel::onRemoveItemPress(wxCommandEvent &evt)
+void InventoryPanel::onRemoveItemPress(wxCommandEvent& evt)
 {
 	int selection = m_Items->GetSelection();
 	if (wxNOT_FOUND == selection)
@@ -358,10 +370,19 @@ void InventoryPanel::onRemoveItemPress(wxCommandEvent &evt)
 		name = this->_Key->Item(selection);
 		break;
 	}
-	hook->removeItem(name);
+	if (hook->removeItem(name) == 0)
+	{
+		m_feedbacklbl->SetForegroundColour(wxColor(102, 287, 106));
+		m_feedbacklbl->SetLabel(name + " removed");
+	}
+	else {
+		m_feedbacklbl->SetForegroundColour(wxColor(239, 83, 80));
+		m_feedbacklbl->SetLabel("Could not remove " + name);
+	}
+
 }
 
-void InventoryPanel::onChangeItemCategory(wxCommandEvent &evt)
+void InventoryPanel::onChangeItemCategory(wxCommandEvent& evt)
 {
 	m_Items->Clear();
 	switch (m_ItemCategoryComboBox->GetSelection())
