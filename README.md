@@ -32,5 +32,6 @@ All features will be disabled until Gadget attaches to the game (indicated at th
 #### What's new?
 
 - `Fixed Inventory`
+- `Inventory feedback`
 
 ## :page_with_curl: [License](LICENSE)

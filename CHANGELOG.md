@@ -3,6 +3,7 @@
 #### What's new?
 
 - `Fixed Inventory`
+- `Inventory feedback`
 
 
 ### Version 2.1.0
