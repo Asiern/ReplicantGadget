@@ -27,10 +27,10 @@ All features will be disabled until Gadget attaches to the game (indicated at th
 
 ## :clipboard: Release Notes
 
-### Version 2.1.0 | [View Previous Versions](CHANGELOG.md)
+### Version 2.2.0 | [View Previous Versions](CHANGELOG.md)
 
 #### What's new?
 
-- `Inventory Management`
+- `Fixed Inventory`
 
 ## :page_with_curl: [License](LICENSE)

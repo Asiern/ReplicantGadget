@@ -1,3 +1,10 @@
+### Version 2.2.0
+
+#### What's new?
+
+- `Fixed Inventory`
+
+
 ### Version 2.1.0
 
 #### What's new?
