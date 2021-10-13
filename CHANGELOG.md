@@ -1,3 +1,10 @@
+### Version 2.2.1
+
+#### What's new?
+
+- `Fixed Inventory`
+- `Added csv to cpp`
+
 ### Version 2.2.0
 
 #### What's new?

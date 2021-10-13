@@ -27,11 +27,11 @@ All features will be disabled until Gadget attaches to the game (indicated at th
 
 ## :clipboard: Release Notes
 
-### Version 2.2.0 | [View Previous Versions](CHANGELOG.md)
+### Version 2.2.1 | [View Previous Versions](CHANGELOG.md)
 
 #### What's new?
 
 - `Fixed Inventory`
-- `Inventory feedback`
+- `Added csv to cpp`
 
 ## :page_with_curl: [License](LICENSE)
