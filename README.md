@@ -17,6 +17,8 @@ Extract `Replicant Gadget` wherever you want and run NierReplicantGadget.exe.<br
 Once you load the game the Gadget will automatically detect the game and attach to it.<br>
 All features will be disabled until Gadget attaches to the game (indicated at the top left by the Hooked text).
 
+[**Use Guide**](doc/UseGuide.md)
+
 ## :boom: Features
 
 - `Player Status` - display player status (Health, level, Magic...)
