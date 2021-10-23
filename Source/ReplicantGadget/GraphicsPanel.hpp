@@ -27,7 +27,7 @@ private:
 	wxButton* m_setModel = nullptr;
 	wxArrayString getItems();
 	wxString getItemID(wxString name);
-
+	wxStaticText* m_feedbacklbl = nullptr;
 };
 
 
